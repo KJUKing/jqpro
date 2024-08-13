@@ -1,0 +1,41 @@
+0
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>  -->
+    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+    <script>
+        $(document).ready( () => {
+            $('#btn1').on('click', () => {
+                res1 = document.getElementById('result1');
+                // res1.style.background = "pink";
+                // 이렇게쓰거나?
+
+                // res1.css('background', 'red'); -오류
+                // -res1: dom객체변수 .css :jquery메소드
+
+                //dom객체변수 res1을 jquery변수변환 - $()
+                // $(res1).style.background = 'cyan'; 이것도 오류임 jquery에는 style이라는 기능없음
+                $(res1).css('background', 'cyan');
+                //이렇게써야함
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>1.</h3>
+        <br>
+        <input type="button" value="확인" id="btn1">
+
+        <br>
+        <div id="result1"></div>
+    </div>
+</body>
+
+</html>

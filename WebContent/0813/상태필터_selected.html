@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+    <script>
+        proc1 = () => {
+            $('#result1 > form *:enabled').css('border', '3px solid lime');
+            $('#result1 > form *:disabled').css('border', '3px solid red');
+
+        }
+
+        $(function(){
+            $('#btn1').on('click', function(){
+                alert($('#spring option:selected').val());
+            })
+        })
+    </script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>1.
+        </h3>
+        <input type="button" value="확인" id="btn1">
+
+        <br>
+        <div id="result1">
+            <form>
+                봄소식 : <select name="spring" id="spring" multiple size="6">
+                    <option>개나리</option>
+                    <option selected>진달래</option>
+                    <option>민들레</option>
+                    <option selected>벚꽃</option>
+                    <option>목련</option>
+                    <option>철쭉</option>
+                </select>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

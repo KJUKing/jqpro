@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>  -->
+    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+    <script>
+        $(function () {
+
+            $('#html').on('click', () => {
+
+                str = "";
+
+                //가져오기
+                $('p').each(function () {
+                    str += $(this).html() + "<br>";
+                })
+
+                //출력하기
+                $('#result1').html(str);
+                // document.getElementById('result1').innerHTML = str;
+            })
+
+            $('#text').on('click', () => {
+
+                str = "";
+
+                //가져오기
+                $('p').each(function () {
+                    str += $(this).html() + "<br>";
+                })
+
+                //출력하기
+                $('#result2').text(str);
+                // document.getElementById('result2').innerHTML = str;
+            })
+        })
+
+    </script>
+    <style>
+        span {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>1. html() 내용가져오기 <br>
+            출력 html() / text()
+        </h3>
+
+        <br>
+        <input type="button" value="html" id="html">
+        <input type="button" value="text" id="text">
+        <br>
+
+        <p>1<span>홍길동</span></p>
+        <p>2<span>개나리</span></p>
+        <p>3<span>진달래</span></p>
+        <br>
+        <div id="result1"></div>
+        <div id="result2"></div>
+    </div>
+</body>
+
+</html>

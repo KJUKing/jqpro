@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>  -->
+<script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+<script>
+    //window 실행 완료 후 즉시 자동시행되는 작수
+    // $(document).ready( () =>{
+    //     //3번박스에서 h2를 클릭하면 - jquery 방식
+    //     $('#result3 h2').on('click', function(){
+
+    //     });
+    // })
+    //버튼 클릭했을때
+    proc1 = () => {
+        //전체 배경색을 변경
+        $('#result1').css('background', 'yellow');
+
+        //h1요소의 글자색을 파랑
+        $('h1').css('color', 'blue');
+
+        //id가 para인 요소의 글자색은 녹색
+
+        $('#para').css('color', 'green');
+        //class가 sample요소의 글자는 빨강
+
+        $('.sample').css('color', 'red');
+    }
+
+    //2번박스에 h2를 클릭하면
+    window.onload = () => {
+        h2list =document.getElementsByTagName('h2');
+
+        for(i=0; i<h2list.length; i++){
+            h2list[i].addEventListener('click', fnClick)
+        }
+        // 3번 박스의 h2를 클릭하면 jquery방식
+        $('#result3 h2').on('click', function(){
+            $(this).hide();
+        });
+    }
+    function fnClick(){
+        this.style.display = "none"
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h3>1. 메소드</h3>
+        <br>
+        <div id="result1">
+            <h1> 제목입니다 </h1>
+            <h2 id = "para"> 작은 제목입니다 </h2>
+            <h3 class = "sample">2.샘플입니다 </h3>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3>2. h2에 대한 이벤트 핸들러 작성<br>
+            script - addEventListener()
+        </h3>
+        <div id="result2">
+            <h2>클릭하면 사라집니다1</h2>
+            <h2>클릭하면 사라집니다2</h2>
+            <h2>클릭하면 사라집니다3</h2>
+            <h2>클릭하면 사라집니다4</h2>
+            <h2>클릭하면 사라집니다5</h2>
+            <h2>클릭하면 사라집니다6</h2>
+            <h2>클릭하면 사라집니다7</h2>
+            <h2>클릭하면 사라집니다8</h2>
+            <h2>클릭하면 사라집니다9</h2>
+            <h2>클릭하면 사라집니다10</h2>
+        </div>
+    </div>
+
+    <div class="box">
+        <div id="result3">
+            <h2>클릭하면 사라집니다1</h2>
+            <h2>클릭하면 사라집니다2</h2>
+            <h2>클릭하면 사라집니다3</h2>
+            <h2>클릭하면 사라집니다4</h2>
+            <h2>클릭하면 사라집니다5</h2>
+            <h2>클릭하면 사라집니다6</h2>
+            <h2>클릭하면 사라집니다7</h2>
+            <h2>클릭하면 사라집니다8</h2>
+            <h2>클릭하면 사라집니다9</h2>
+            <h2>클릭하면 사라집니다10</h2>
+        </div>
+    </div>
+
+
+</body>
+</html>
