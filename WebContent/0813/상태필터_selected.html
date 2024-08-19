@@ -17,7 +17,17 @@
 
         $(function(){
             $('#btn1').on('click', function(){
-                alert($('#spring option:selected').val());
+                //한개의 값만 나옴
+                //alert($('#spring option:selected').val());
+
+                let str = "";
+                $.each($('#spring option:selected'), function(x, y){
+                    str += $(this).val() + "<br>";
+                })
+                // $('#spring option:selected').each(function(){
+                //     str += $(this).val() + "<br>";
+                // })
+                $('#res').html(str); // InnerHtml = str 과 동일함
             })
         })
     </script>
@@ -45,6 +55,7 @@
                 </select>
             </form>
 
+            <div id ="res"></div>
         </div>
     </div>
 

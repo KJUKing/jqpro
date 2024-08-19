@@ -31,8 +31,10 @@
                 'click' : ppProc2    //참조형식.내부함수에서 this를 자동으로 넘겨받음
             })
 
-            $('#result1').append([ptag])
+            // $('#result1').append([ptag])
             // $(ptag).appendTo($('#reuslt1'));
+
+            $('#result1').prepend(ptag);
         }
 
         function ppProc2(){
@@ -51,7 +53,7 @@
         <input type="button" value="확인" onclick="proc1()">
 
         <br>
-        <div id="result1"></div>
+
     </div>
 </body>
 

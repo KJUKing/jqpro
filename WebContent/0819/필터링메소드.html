@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+
+    <script>
+        $(function () {
+
+            $('#btn1').on('click', function(){
+
+                $('p:eq(0)').css('color', 'red')
+                $('p').eq(1).css('color', 'blue')
+
+                $('p:even').css('background', 'yellow');
+                $('p').even().css('font-size', '1.5rem');
+
+                $('p:last').css('border', '2px solid lime');
+                $('p').last().css('border', '2px solid lime');
+
+                $('p').filter(':last').css('color', 'hotpink')
+                $('p').filter(':even').css('color', 'hotpink')
+
+                // $('p').not();
+            })
+
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>1.
+        </h3>
+
+        <input type="button" value="확인" id="btn1">
+        <div id="result1">        </div>
+        <p>무궁화</p>
+        <p class="pp">무궁화</p>
+        <p>무궁화</p>
+        <p>무궁화</p>
+        <p class="pp">무궁화</p>
+        <p>무궁화</p>
+        <p>무궁화</p>
+        <p>무궁화</p>
+        <p class="pp">무궁화</p>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+
+    <script>
+        $(function () {
+
+            $('#btn1').on('click', function(){
+                $('#result1 .start').prev().css({ 'color' : 'red', 'border' : '1px solid red'})
+        
+            })
+
+            $('#btn2').on('click', function(){
+                $('#result1 .start').prevAll().css({ 'color' : 'blue', 'border' : '1px solid blue'})
+        
+            })
+
+            $('#btn3').on('click', function(){
+                $('#result1 .start').prevUntil('#result1 : li:first').css({ 'color' : 'green', 'border' : '1px solid green'})
+        
+            })
+
+        })
+
+    </script>
+
+    <style>
+        .siblings * {
+            display: block;
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin : 15px;
+        }
+        .start{
+            color : black
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>1.
+        </h3>
+
+        <input type="button" value="prev" id="btn1">
+        <input type="button" value="prevAll"  id="btn2">
+        <input type="button" value="prevUntil"  id="btn3">
+        <div id="result1">        </div>
+        
+    <div style="width: 500px;" class="siblings">
+        <ul>ul (parent)
+            <li> (siblings)</li>
+            <li> (siblings)</li>
+            <li> (siblings)</li>
+                <li> (siblings)</li>
+                <li> (siblings)</li>
+                <li> (siblings)</li>
+                <li class="start"> (siblings with)</li>
+                <li> (siblings)</li>
+                <li> (siblings)</li>
+
+
+        </ul>
+
+
+    </div>
+
+    </div>
+</body>
+
+</html>
