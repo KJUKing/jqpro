@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+
+    <script>
+        $(() =>{
+
+            $('#all').on('change', function(){
+
+                //all의 현재상태 값을 가져온다 check니까
+                chk = $(this).prop('checked');
+                $('.item').prop('checked', chk);
+
+                //class=item의 상태값을 chk값으로 설정한다
+            })
+
+            $('#btn1').on('click', function(){                
+                chk = $('#checkTest').prop('checked');
+                sel = $('#selTest option').eq(2).prop('selected');
+                txt = $('#txtTest').prop('readonly');
+                dis = $('#runBtn').prop('disabled');
+
+                console.log(chk, sel, txt, dis);
+
+                //반대로 설정
+                $('#checkTest').prop('checked', !chk);
+                $('#selTest option').prop('selected', !sel);
+                $('#txtTest').prop('readonly', !txt);
+                $('#runBtn').prop('disabled', !dis);
+
+                // if(chk) $('#checkTest').prop('checked', false);
+                // else $('#checkTest').prop('checked', true);
+
+                // if(sel) $('#selTest option').eq(2).prop('selected', false);
+                // else $('#selTest option').eq(2).prop('selected', true);
+
+                // if(txt) $('#txtTest').prop('readonly', false);
+                // else $('#txtTest').prop('readonly', true);
+
+                // if(dis) $('#runBtn').prop('disabled', false);
+                // else $('#runBtn').prop('disabled', true);
+
+            })
+        })
+
+    </script>
+
+    <style>
+        img{
+            width: 80px;
+            height: 80px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>1. 전체선택의 상태값으로하면 1~5까지의 요소의 상태를 설정<br>
+            2. 버튼 클릭할때마다 각 요소들의 상태값을 반대인 상태로 변경
+        </h3>
+        <input type="button" value="확인" id="btn1">
+        <br>
+
+ 
+        <form>
+            체크박스(라디오버튼) : <input type="checkbox" id="checkTest" checked><br><br>
+            리스트박스(select객체) :
+            <select id="selTest">
+                <option value="1">하나</option>
+                <option value="2">둘</option>
+                <option value="3" selected>셋</option>
+                <option value="4">넷</option>
+            </select><br><br>
+            text객체 (readonly) : <input type="text" value="가나다" id="txtTest"><br><br>
+            button객체(disabled) :
+            <input type="button" value="실행" id="runBtn" onclick="alert('hello~')">
+        </form>
+        
+
+    </div>
+    <div class="box">
+    <div id = "result1">
+        <input type="checkbox" id="all" value="전체선택">전체선택
+        <br><br>
+
+        <input type="checkbox" class="item" value="1">1
+        <input type="checkbox" class="item" value="2">2
+        <input type="checkbox" class="item" value="3">3
+        <input type="checkbox" class="item" value="4">4
+        <input type="checkbox" class="item" value="5">5
+    </div>
+    </div>
+
+</body>
+
+</html>

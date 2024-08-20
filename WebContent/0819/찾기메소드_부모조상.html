@@ -20,6 +20,14 @@
                 $('#result1 span').parents().css({ 'color' : 'blue', 'border' : '1px solid blue'})
         
             })
+
+            $('#btn3').on('click', function(){
+                $('#result1 span').parents('#result1').css({ 'color' : 'green', 'border' : '1px solid green'})
+            })
+
+            $('#btn4').on('click', function(){
+                $('#result1 span').parentsUntil('#result1').css({ 'color' : 'lime', 'border' : '1px solid lime'})
+            })
         })
 
     </script>
@@ -40,8 +48,10 @@
         <h3>1.
         </h3>
 
-        <input type="button" value="parent" id="btn1()">
-        <input type="button" value="parents" id="btn2()">
+        <input type="button" value="parent" id="btn1">
+        <input type="button" value="parents" id="btn2">
+        <input type="button" value="parents" id="btn3">
+        <input type="button" value="parentsUntil" id="btn4">
 
         <div id="result1">
             <div class="ancestors">div (great-great-grandparent)
