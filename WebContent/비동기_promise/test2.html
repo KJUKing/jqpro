@@ -11,16 +11,27 @@
 
     <script>
         const proc1 = () =>{
-            
-            
-            setTimeout( () => {
-                console.log("1");
-            },2000);
-            
-            console.log("2");
-            console.log("3");
+            const promise = new Promise((resolve, reject) => {
+             
+                setTimeout (() => {
+                    const data = {name : "김은대"};
+
+                    // console.log("요청성공 - 글쓰기, 수정, 삭제, 상세보기");
+                    resolve(data);
+                }, 1000);
+            });
+
+            setTimeout(()=>{
+                console.log(promise);
+            }, 2000);
         }
+        //resolve를 호출했다
+        //state : fulfilled
+        //result : object
+        //
+
     </script>
+
 
     <style>
 
@@ -34,7 +45,8 @@
 
         <input type="button" value="확인" onclick="proc1()">
 
-        <br>        <div id="result1"></div>
+        <br>
+        <div id="result1"></div>
 
     </div>
 </body>

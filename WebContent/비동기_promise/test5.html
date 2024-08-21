@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+
+    <script>
+
+        function login(userName){
+            return new Promise((resolve, reject) => {
+                setTimeout( () => {
+                    if(userName){
+                        resolve(userName);
+                    }else{
+                        reject(new Error("name을 입력하세요"));
+                    };
+                },1000);
+            })
+        }
+
+        // login("철수")
+        // .then(user =>{
+        //     console.log(`${name}님 환영합니다`)
+        // })
+        // .catch( err => {
+        //     console.log(err)
+        // })
+
+        function addToCart(product){
+            return new Promise( (resolve, reject) => {
+                setTimeout(() => {
+                    if(product){
+                        resolve(product);
+                    }else{
+                        reject(new Error("상품이 없어요"));
+                    }
+                }, 1000);
+            })
+        }
+
+        // addToCart("딸기")
+        // .then(prod => {
+        //     console.log(`${prod}를 장바구니에 넣었어요`)
+        // })
+        // .catch( err => {
+        //     console.log(err)
+        // })
+
+        makePayment = (cardNo, product) => {   //1
+            return new Promise((resolve, reject) => { //2
+
+                setTimeout(() => {
+                    if(cardNo.length != 12){
+                    reject(new Error("잘못된 카드번호입니다"));
+                    return;
+                }
+
+                if(!product){
+                    reject(new Error("상품을 넣어주세요"));
+                    return;
+                }
+
+                resolve(product);
+                }, 1000);                            
+            })                                            //2
+        }                                       //1
+
+        // makePayment("123412341234", "고양이")
+        // .then(data => {
+        //     console.log(`${data}를 결제했습니다`)
+        // }).catch( err => {
+        //     console.log(err)
+        // })
+
+        const proc1 = () =>{
+            login("철수")
+            .then(user => {
+                console.log(`${user}님 환영합니다`);
+                return addToCart("딸기");
+            }).then(prod => {
+                console.log(`${prod}를 장바구니에 넣었어요`);
+                return makePayment("123412341234", prod);
+            }).then(data =>{
+                console.log(`${data}를 결제했습니다.`);
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+    </script>
+
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>1. 동기적 실행 - 한번에 하나씩 차례대로 순서대로 실행
+        </h3>
+
+        <input type="button" value="확인" onclick="proc1()">
+
+        <br>
+        <div id="result1"></div>
+
+    </div>
+</body>
+
+</html>

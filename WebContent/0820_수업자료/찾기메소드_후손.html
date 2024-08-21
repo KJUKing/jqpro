@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
+
+<style>
+.ancestors * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+
+.box  #result1  div{
+   border : 3px solid dodgerblue;
+}
+</style>
+
+
+<script>
+$(() =>{
+	
+	$('.btn').on('click', function(){
+		
+		//버튼을 기준으로 조상을 찾는다 
+		/* vp = $(this).parent();
+		$(vp).find('span').css('background', 'red')
+        */
+
+		$(this).parent().find('span').css('background', 'red');
+	})
+})
+</script>
+</head>
+<body>
+
+
+<div class="box">
+    <h3>1. 버튼 클릭시 현재 그릅의 span태그를 찾는다 
+    parents('지정') / find('지정')
+   </h3>
+	
+	<br>
+	<div id="result1">
+	   <div class="ancestors">div (great-great-grandparent)
+		  <div style="width:500px;">div (great-grandparent)
+		    <ul>ul (grandparent)  
+		      <li>li (direct parent)
+		        <span>span</span>
+		      </li>
+		   </ul>
+		    <input type="button" value="확인" class="btn">
+		       
+		  </div>
+		</div>
+		
+		<div class="ancestors">div (great-great-grandparent)
+		  <div style="width:500px;">div (great-grandparent)
+		    <ul>ul (grandparent)  
+		      <li>li (direct parent)
+		        <span>span</span>
+		      </li>
+		    </ul> 
+		    <input type="button" value="확인" class="btn">  
+		  </div>
+		</div>
+		
+		<div class="ancestors">div (great-great-grandparent)
+		  <div style="width:500px;">div (great-grandparent)
+		    <ul>ul (grandparent)  
+		      <li>li (direct parent)
+		        <span>span</span>
+		      </li>
+		    </ul> 
+		    <input type="button" value="확인" class="btn">  
+		  </div>
+		</div>
+	
+	</div>
+</div>
+
+</body>
+</html>
+
+
+
+

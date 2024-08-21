@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+
+    <script>
+        //로그인/장바구니/결제하기
+
+        //로그인 함수 - username fnPro : 콜백함수를 받는 매개변수
+        function login(userName, fnPro){
+
+            setTimeout( () =>{
+                fnPro(userName);
+            },2000);
+        }
+
+        // login("철수", function(data){
+        //     console.log(`${data}님 안녕하세요`)
+        // })
+
+        //장바구니
+        function addToCart(product, fnPro){
+            setTimeout( () => {
+                fnPro(product);
+            }, 3000);
+        }
+        // addToCart("딸기", function(item){
+        //     console.log(`${item}을 장바구니에 넣었습니다.`)
+        // })
+
+        //결제하기
+        function makePayment(cardNo, product, fnPro){
+            setTimeout( ()=>{
+                fnPro(cardNo, product);
+            }, 1000);
+        }
+
+        // 1번실행 -> 실행순서가 보장받지못한다
+        // makePayment("123412341234", "딸기", (cardNo, prod)=>{
+        //     console.log(`${cardNo.slice(0,4)}******** 으로 ${prod}를 구매했습니다`)
+        // })
+
+        // const proc1 = () => {
+        //     login("철수", data => {
+        //         console.log(`${data}님 안녕하세요`)
+        //     })
+
+        //     addToCart("딸기", item => {
+        //         console.log(`${item}을 장바구니에 넣었습니다.`)
+        //     })
+
+        //     makePayment("123412341234", "딸기", (cardNo, prod)=>{
+        //         console.log(`${cardNo.slice(0,4)}******** 으로 ${prod}를 구매했습니다`)
+        //     })
+
+
+        // }
+
+        //2번실행 실행순서를 보장받기 위해서는 콜백함수를 사용
+        // const proc1 = () => {
+
+        //     login("철수", data => {
+        //         console.log(`${data}님 안녕하세요`);
+        //         //장바구니담기를 login의 콜백에서 수행
+        //         addToCart("딸기", item => {
+        //             console.log(`${item}을 장바구니에 넣었습니다`)
+
+        //             //결제하기를 장바구니의 콜백함수에서 처리
+        //             makePayment("123412341234", "딸기", (cardNo, prod)=>{
+        //                 console.log(`${cardNo.slice(0,4)}******** 으로 ${prod}를 구매했습니다`)
+                    
+        //                 //리뷰쓰기
+        //                 review( aaaa, () => {
+        //                     //쿠폰 받기
+        //                     getCoupon(sfj, () => {
+
+        //                     })
+        //                 })
+                    
+        //             })
+        //         })
+        //     })
+        // }
+
+        //만약 결제하기가 끝나고나서 리뷰쓰기. 리뷰쓰기가 끝나면 쿠폰받기 이런식이면 콜백지옥에 빠짐
+        //콜백지옥을 해결하기위해서는
+    </script>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>1. 동기적 실행 - 한번에 하나씩 차례대로 순서대로 실행
+        </h3>
+
+        <input type="button" value="확인" onclick="proc1()">
+
+        <br>        <div id="result1"></div>
+
+    </div>
+</body>
+
+</html>

@@ -10,16 +10,27 @@
     <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
 
     <script>
-        const proc1 = () =>{
-            
-            
+        function getData(fn){
+
             setTimeout( () => {
-                console.log("1");
-            },2000);
+                console.log("서버에서 데이터 가져오기\n id가 a001인 데이터의 이름 가져오기");
+                let vname = "김은대";
+                //콜백함수 호출
+                fn({name : vname});
+            }, 2000);
             
-            console.log("2");
-            console.log("3");
+
         }
+
+        const proc1 = () =>{
+            //main함수 호출 main에서 비동기 실행할때 콜백함수 호출
+            getData(function(data){
+                console.log(`id가 a001인 데이터의 이름 ${data.name}`)
+            });
+
+        }
+
+        //결과 : id가 a001인 데이터의 이름 김은대
     </script>
 
     <style>

@@ -11,16 +11,24 @@
 
     <script>
         const proc1 = () =>{
-            
-            
-            setTimeout( () => {
-                console.log("1");
-            },2000);
-            
-            console.log("2");
-            console.log("3");
+            const promise = new Promise((resolve, reject) => {
+             
+                setTimeout (() => {
+                    const data = {name : "김은대"};
+
+                    console.log("요청성공 - 글쓰기, 수정, 삭제, 상세보기");
+
+                }, 1000);
+            });
+
+            console.log(promise);
         }
+
+        //promise함수 내부에서 resolve, reject를 호출하지 않은 상태
+        //state : pending
+        //result : undefined
     </script>
+
 
     <style>
 
@@ -34,7 +42,8 @@
 
         <input type="button" value="확인" onclick="proc1()">
 
-        <br>        <div id="result1"></div>
+        <br>
+        <div id="result1"></div>
 
     </div>
 </body>

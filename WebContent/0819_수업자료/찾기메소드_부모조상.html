@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
+
+<style>
+.ancestors * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+
+<script>
+$(function(){
+	
+	$('#btn1').on('click', function(){
+		$('#result1 span').parent().css({ 'color' : 'red', 'border': '1px solid red' });
+	})
+	
+	$('#btn2').on('click', function(){
+		$('#result1 span').parents().css({ 'color' : 'blue', 'border': '2px solid blue' });
+	})
+	
+	$('#btn3').on('click', function(){
+		$('#result1 span').parents('#result1').css({ 'color' : 'green', 'border': '2px solid green' });
+	})
+	
+	$('#btn4').on('click', function(){
+		$('#result1 span').parentsUntil('#result1').css({ 'color' : 'lime', 'border': '2px solid lime' });
+	})
+})
+</script>
+
+</head>
+<body>
+
+
+<div class="box">
+    <h3>1. 
+   </h3>
+	<input type="button" value="parent" id="btn1">
+	<input type="button" value="parents" id="btn2">
+	<input type="button" value="parentssel" id="btn3">
+	<input type="button" value="parentsuntil" id="btn4">
+
+	<br>
+	<div id="result1">
+		<div class="ancestors">div (great-great-grandparent)
+		  <div style="width:500px;">div (great-grandparent)
+		    <ul>ul (grandparent)  
+		      <li>li (direct parent)
+		        <span>span</span>
+		      </li>
+		    </ul>   
+		  </div>
+		</div>
+	
+	</div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
