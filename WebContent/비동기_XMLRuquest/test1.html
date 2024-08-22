@@ -1,59 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/public.css">
-    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 
-    <script>
-        const proc1 = () =>{
-            const promise = new Promise((resolve, reject) => {
-             
-                setTimeout (() => {
-                    const data = {name : "김은대"};
-
-                    console.log("요청성공 - 글쓰기, 수정, 삭제, 상세보기");
-
-                }, 1000);
-            });
-
-            console.log(promise);
-        }
-
-        //promise함수 내부에서 resolve, reject를 호출하지 않은 상태
-        //state : pending
-        //result : undefined
-    </script>
+<!-- <script  src=""></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
 
 
-    <style>
+<script>
 
-    </style>
+const xhr = new XMLHttpRequest();
+
+$(()=>{
+	
+	//비동기 post
+	$('#asynpost').on('click', ()=>{
+		
+		 //입력한 값을 가져온다 - id속성을 이용 
+		 vname = $('#namep').val().trim();
+		 vtel = $('#telp').val().trim();
+		  
+		 //요청 
+		 data ='name=' + vname + '&tel=' + vtel ;
+		 
+		 
+		 xhr.open('post', 'test1.jsp', true);
+		 xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+		 xhr.send(data)
+		 
+		 //응답 
+		 xhr.onload  = function(){
+			 if(this.readyState == 4 &&  this.status == 200){
+				   res =  this.responseText;
+				   
+				   $('#result2').html(res);
+			  }
+		 }
+	})
+	
+	
+	
+	//비동기 get
+	  $('#asynb').on('click', ()=>{
+		  
+		 /*  //name속성ㅇ르 이용
+		let vname  =  document.ff1.name.value;
+		let  vtel =  document.ff1.tel.value;
+		 console.log(vname, vtel);
+		  */
+		 
+		  //입력한 값을 가져온다 - id속성을 이용 
+		  vname = $('#name').val().trim();
+		  vtel = $('#tel').val().trim();
+		  	  
+		  
+		  //응답 
+		  xhr.onreadystatechange = function(){
+			  alert(this.readyState);
+			 
+			  if(this.readyState == 4 &&  this.status == 200){
+				   res =  this.responseText;
+				   
+				   $('#result1').html(res);
+			  }
+		  }
+		  
+		  
+		  //서버로 전송 -요청
+		  xhr.open('get', 'test1.jsp?name=' + vname + '&tel=' + vtel, true);
+		  xhr.send();
+		  
+	  })
+})
+</script>
+
 </head>
-
 <body>
-    <div class="box">
-        <h3>1. 동기적 실행 - 한번에 하나씩 차례대로 순서대로 실행
-        </h3>
 
-        <br>
-        <form id ="ff1" action="test1.jsp", method="get">
-               이름<input type="text" name="name" id="name"><br>
-       	 전화번호<input type="text" name="tel" id="tel"><br>
-        
-        <input type="submit" value="동기방식">
-        <input type="button" value="비동기방식" id="asynb">
-       
-            
-        </form>
-        <br>
-        <div id="result1"></div>
 
-    </div>
+<div class="box">
+    <h3>1. 비동기 XMLHttpRequest<br>get방식
+   </h3>
+	
+
+	<br>
+	<form id="ff1" name="ff1"  action="test1.jsp"  method="get">
+	 이름 <input type="text" name="name" id="name"><br>
+	 전화번호 <input type="text" name="tel" id="tel"><br>
+	 
+	 <input type="submit" value="동기방식">
+	 <input type="button" value="비동기방식 " id="asynb">
+	</form>
+	<br>
+	<div id="result1"></div>
+</div>
+
+<div class="box">
+    <h3>1. 비동기 XMLHttpRequest<br>post방식
+   </h3>
+	
+
+	<br>
+	<form id="ff1" name="ff1"  action="test1.jsp"  method="post">
+	 이름 <input type="text" name="name" id="namep"><br>
+	 전화번호 <input type="text" name="tel" id="telp"><br>
+	 
+	 <input type="submit" value="동기방식">
+	 <input type="button" value="비동기방식 " id="asynpost">
+	</form>
+	<br>
+	<div id="result2"></div>
+</div>
+
+
+
+
 </body>
-
 </html>
+
+
+
+
+
