@@ -34,6 +34,39 @@
                 })
             }
 
+            $('#text').on('click', () => {
+                getData('text.jsp')
+                    .then((res) => {
+                        arr = res.split("/");
+
+                        let code = "<ul>";
+                        $.each(arr, function (i, v) {
+                            code += `<li>${v}</li>`;
+                        })
+                        code += "</ul>";
+                        $('#result1').html(code);
+                    })
+
+
+            })
+
+            $('#jarr').on('click', () => {
+                getData('jarr.jsp')
+                    .then((res) => JSON.parse(res))
+                    .then(data => {
+                        let code = "<ol>";
+                        $.each(data, function (i, v) {
+                            // code += `<li>${data[i]}</li>`
+                            code += `<li>${v}</li>`
+                            // code += `<li>${this}</li>`
+                        })
+                        code += "</ol>";
+                        $('#result2').html(code);
+                    })
+
+
+            })
+
 
             $('#jobj').on('click', () => {
 
@@ -66,30 +99,30 @@
             $('#jmix').on('click', () => {
 
                 //요청
-                xhr.open('get', 'jmix.jsp', true);
-                xhr.send();
-                //응답
-                xhr.onload = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        res = this.responseText;
+                // promi = getData('jmix.jsp')
+                // promi.then((res) => {
+                //     return JSON.parse(res);
+                // })
+                // .then((data) => {
 
-                        jres = JSON.parse(res);
-                        //출력모양
+                // })
 
-                        code = "";
-                        for ({ name, addr, tel } of jres) {
-
+                getData('jmix.jsp')
+                    .then(res => JSON.parse(res))
+                    .then(data => {
+                        // for(let user of data){
+                        // }
+                        let code = "";
+                        for (let { name, addr, tel } of data) {
                             code += `<p>이름 : ${name} </p>
                                      <p>주소 : ${addr} </p>
                                      <p>전화번호 : ${tel} </p>
                                      <hr color='blue'>`;
                         }
-                        //출력    
                         $('#result4').html(code);
 
-
-                    }
-                }
+                    })
+                    .catch(err => console.log(err));
             })
         })
 
