@@ -24,6 +24,7 @@ try{
 
 String reqData = strbuf.toString();
 //System.out.print("reqdata= " + reqData );
+//{"id":"sdfs , "name":"adfads" , "email" : "sdfdsf"}
 
 //역직렬화
 Gson gson = new Gson();
@@ -38,6 +39,9 @@ SeriaVO svo = gson.fromJson(reqData, SeriaVO.class);
 //svo로 db연결 crud처리
 
 //svo결과로 응답데이터를 생성
+
+//gson을 이용한 직렬화 - 밑에 코딩안하고
+
 
 
 
