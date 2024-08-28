@@ -1,149 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/public.css">
-    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 
-    <script>
-        $(() => {
-            $('#text').on('click', () => {
-                fetch('text.jsp')
-                    .then(res => {
-                        console.log(res);
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
 
-                        if (res.ok) {
-                            return res.text();
-                        } else {
-                            throw new Error(`오류 발생 : ${res.statusText}`)
-                        }
-                    })
-                    .then(data => {
-                        // data = 홍길동/개나리/진달래/무궁화/수선화/라일락
 
-                        arr = data.split("/");
-                        let code = "<ul>";
-                        $.each(arr, (i, v) => {
-                            code += `<li>${v}</li>`;
-                        })
-                        code += "</ul>";
+<style>
+#res {
+  display : flex;
+  flex-direction: row;
+}
+.item{
+  flex : 25%;
+  margin : 3px;
+  padding : 2px;
+}
 
-                        $('#result1').html(code);
-                    })
-            })
+</style>
 
-            $('#jarr').on('click', () => {
-                fetch('jarr.jsp')
-                    .then(res => {
-                        console.log(res);
 
-                        if (res.ok) {
-                            return res.json()
-                        } else {
-                            throw new Error(`오류 발생 : ${res.statusText}`)
-                        }
-                    })
-                    .then(data => {
-                        let code = "<pl>"
-                        for (const user of data) {
-                            code += `<li>${user}</li>`;
+<script>
 
-                        }
-                        code += "</ol>";
+$(() =>{ 
+	
+	$('#jmix').on('click', ()=>{
+		
+	})
+	
+	$("#jobj").on('click', ()=>{
+		
+		fetch('jobj.jsp')
+		.then(  res = >{
+			 if(!res.ok){
+				 throw new Error(`오류 발생 : ${res.statusText}`) 
+			 }
+			 
+			 return res.json();
+		})
+		/* .then ( data =>{
+			
+			//data.name data.addr data.tel
+		}) */
+		.then( ({name, addr, tel}) =>{
+			//출력 모양 
+			//name addr tel
+			
+			//result3에 출력 
+		})
+	})
+	
+	
+	
+	$('#jarr').on('click', ()=>{
+		fetch('jarr.jsp')
+		.then( res =>{
+			 console.log(res); 
+		  
+			  if(res.ok){
+				   return res.json()
+			  }else{
+				 throw new Error(`오류 발생 : ${res.statusText}`) 
+			  }
+		})
+		.then( data =>{
+			
+			let code = "<ol>"
+			for(const user of data){
+				code += `<li>${user}</li>`
+			}
+			code += "</ol>";
+			
+			$('#result2').html(code);
+		})
+	})
+	
+	
+	
+	
+	 
+   $('#text').on('click', () =>{
+	 
+	   fetch('text.jsp')
+	   .then(  res => { 
+		  console.log(res); 
+		  
+		  if(res.ok){
+			   return res.text()
+		  }else{
+			 throw new Error(`오류 발생 : ${res.statusText}`) 
+		  }
+	   })
+	   .then( data =>{
+		   //data = 홍길동/개나리/진달래/무궁화/수선화/라일락
+		   
+		   arr = data.split("/");
+		   //출력 
+		   let code = "<ul>"
+		   $.each(arr, (i,v)=>{
+			   code += `<li>${v}</li>`
+		   })
+		   code += "</ul>";
+		   
+		   $('#result1').html(code)
+		   
+	   })
+   })
+   
+   
+   
+})
+</script>
 
-                        $('#result2').html(code);
-                    })
-            })
-
-            $('#jobj').on('click', () => {
-                let code = "";
-                fetch('jobj.jsp')
-                    .then(res => {
-                        if (!res.ok) {
-                            throw new Error(`오류 발생 : ${res.statusText}`)
-                        }
-                        return res.json();
-                    })
-                    // .then( data => {
-                    //     //data.name data.addr data.tel
-
-                    // })
-                    // 만약 구조분해를 한다면 밑처럼 이렇게해야한다
-                    .then(({ name, addr, tel }) => {
-                        code += `<p>이름 : ${name} </p>
-                             <p>주소 : ${addr} </p>
-                             <p>전화번호 : ${tel} </p>
-                              <hr color='blue'>`;
-                        $('#result3').html(code);
-                    }).catch(err => {
-                        console.error(err);
-                    })
-            })
-
-            $('#jmix').on('click', () => {
-                fetch('jmix.jsp')
-                    .then(res => {
-                        if(!res.ok){
-                            throw new Error(`오류 발생 : ${res.statusText}`)
-                        }
-                        return res.json();
-                    })
-                    .then( data => {
-                        let code = "";
-                        for (let { name, addr, tel } of data) {
-                            code += `<p>이름 : ${name} </p>
-                                    <p>주소 : ${addr} </p>
-                                    <p>전화번호 : ${tel} </p>
-                                    <hr color='blue'>`;
-                        }
-                        $('#result4').html(code);
-      
-                    })  
-                    .catch(err => console.log(err));
-            })
-        })
-    </script>
-
-    <style>
-        #res {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .item {
-            flex: 25%;
-            margin: 3px;
-            padding: 2px;
-        }
-    </style>
 </head>
-
 <body>
-    <div class="box">
-        <h3>1. fetch
-        </h3>
 
-        </h3>
-        <input type="button" value="text" id="text">
-        <input type="button" value="jsonarr" id="jarr">
-        <input type="button" value="jsonobj" id="jobj">
-        <input type="button" value="jsonmix" id="jmix">
 
-        <br>
-        <div id="res">
-            <div class="item" id="result1"></div>
-            <div class="item" id="result2"></div>
-            <div class="item" id="result3"></div>
-            <div class="item" id="result4"></div>
-        </div>
-        <br>
-        <div id="result1"></div>
+<div class="box">
+    <h3>1. 
+   </h3>
+   
+    <input type="button" value="text"  id="text">
+	<input type="button" value="jsonarr"  id="jarr">
+	<input type="button" value="jsonobj" id="jobj" >
+	<input type="button" value="jsonmix"  id="jmix">
 
-    </div>
+	<br>
+	<div id="res">
+		<div class="item" id="result1"></div>
+		<div class="item" id="result2"></div>
+		<div class="item" id="result3"></div>
+		<div class="item" id="result4"></div>
+	</div>
+   
+	
+</div>
+
 </body>
-
 </html>
+
+
+
+
+
+
+

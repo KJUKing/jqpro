@@ -2,94 +2,77 @@ package kr.or.ddit.prod.vo;
 
 public class ProdVO {
 
-    private String PROD_SIZE;
-    private int PROD_SALE;
-    private int PROD_PRICE;
-    private int PROD_OUTLINE;
-    private String PROD_NAME;
-    private String PROD_LGU;
-    private String PROD_ID;
-    private int PROD_COST;
-    private String PROD_COLOR;
-    private String PROD_BUYER;
-
-    public String getPROD_SIZE() {
-        return PROD_SIZE;
-    }
-
-    public void setPROD_SIZE(String PROD_SIZE) {
-        this.PROD_SIZE = PROD_SIZE;
-    }
-
-    public int getPROD_SALE() {
-        return PROD_SALE;
-    }
-
-    public void setPROD_SALE(int PROD_SALE) {
-        this.PROD_SALE = PROD_SALE;
-    }
-
-    public int getPROD_PRICE() {
-        return PROD_PRICE;
-    }
-
-    public void setPROD_PRICE(int PROD_PRICE) {
-        this.PROD_PRICE = PROD_PRICE;
-    }
-
-    public int getPROD_OUTLINE() {
-        return PROD_OUTLINE;
-    }
-
-    public void setPROD_OUTLINE(int PROD_OUTLINE) {
-        this.PROD_OUTLINE = PROD_OUTLINE;
-    }
-
-    public String getPROD_NAME() {
-        return PROD_NAME;
-    }
-
-    public void setPROD_NAME(String PROD_NAME) {
-        this.PROD_NAME = PROD_NAME;
-    }
-
-    public String getPROD_LGU() {
-        return PROD_LGU;
-    }
-
-    public void setPROD_LGU(String PROD_LGU) {
-        this.PROD_LGU = PROD_LGU;
-    }
-
-    public String getPROD_ID() {
-        return PROD_ID;
-    }
-
-    public void setPROD_ID(String PROD_ID) {
-        this.PROD_ID = PROD_ID;
-    }
-
-    public int getPROD_COST() {
-        return PROD_COST;
-    }
-
-    public void setPROD_COST(int PROD_COST) {
-        this.PROD_COST = PROD_COST;
-    }
-
-    public String getPROD_COLOR() {
-        return PROD_COLOR;
-    }
-
-    public void setPROD_COLOR(String PROD_COLOR) {
-        this.PROD_COLOR = PROD_COLOR;
-    }
-
-    public String getPROD_BUYER() {
-        return PROD_BUYER;
-    }
-
-    public void setPROD_BUYER(String PROD_BUYER) {
-        this.PROD_BUYER = PROD_BUYER;
-    }
+	private String prod_id      ;
+	private String prod_name    ;
+	private String prod_lgu     ;
+	private String prod_buyer   ;
+	private int prod_cost       ;
+	private int prod_price      ;
+	private int prod_sale       ;
+	private String prod_outline ;
+	private String prod_size    ;
+	private String prod_color   ;
+	
+	public String getProd_id() {
+		return prod_id;
+	}
+	public void setProd_id(String prod_id) {
+		this.prod_id = prod_id;
+	}
+	public String getProd_name() {
+		return prod_name;
+	}
+	public void setProd_name(String prod_name) {
+		this.prod_name = prod_name;
+	}
+	public String getProd_lgu() {
+		return prod_lgu;
+	}
+	public void setProd_lgu(String prod_lgu) {
+		this.prod_lgu = prod_lgu;
+	}
+	public String getProd_buyer() {
+		return prod_buyer;
+	}
+	public void setProd_buyer(String prod_buyer) {
+		this.prod_buyer = prod_buyer;
+	}
+	public int getProd_cost() {
+		return prod_cost;
+	}
+	public void setProd_cost(int prod_cost) {
+		this.prod_cost = prod_cost;
+	}
+	public int getProd_price() {
+		return prod_price;
+	}
+	public void setProd_price(int prod_price) {
+		this.prod_price = prod_price;
+	}
+	public int getProd_sale() {
+		return prod_sale;
+	}
+	public void setProd_sale(int prod_sale) {
+		this.prod_sale = prod_sale;
+	}
+	public String getProd_outline() {
+		return prod_outline;
+	}
+	public void setProd_outline(String prod_outline) {
+		this.prod_outline = prod_outline;
+	}
+	public String getProd_size() {
+		return prod_size;
+	}
+	public void setProd_size(String prod_size) {
+		this.prod_size = prod_size;
+	}
+	public String getProd_color() {
+		return prod_color;
+	}
+	public void setProd_color(String prod_color) {
+		this.prod_color = prod_color;
+	}
+	
+	
 }

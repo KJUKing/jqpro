@@ -1,59 +1,64 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <link rel="stylesheet" href="../css/public.css">
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>  -->
-    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
-    <script>
-        //이미지 배열
-        arr=["tulips.jpg", "국화3.jpg", "등대.jpg", "딸기스무디.jpg", "무지게1.png"
-             ,"소우주.jpg", "수국8.jpg", "옷2.jpg"]
-        
-        //로드 직후 실행되는 함수     
-        // $(function(){ 이렇게써도된다
-        $(() =>{
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 
-            //id=btn1 검색 클릭 이벤트
-            $('#btn1').on('click', ()=> {
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
 
-                //이미지 생성
-                rand = parseInt(Math.random() * arr.length);
+<script>
 
-                //이미지 생성 - 이미지 선택arr[rand]
-                vimg = $(`<img onclick="imgBorder(this)" src="../images/${arr[rand]}" alt="${arr[rand]}">`);
+//이미지 배열 
+arr=["Tulips.jpg", "국화3.jpg", "등대.jpg",
+	"딸기스무디.jpg", "무지게1.png", "소우주.jpg", "수국8.jpg", "옷2.jpg"]
 
-                //result1에 이미지를 추가
-                $('#result1').append(vimg);
-            })//click
-        })//$(function)
-        
-        function imgBorder(imgele){
-            // imgele.style.border = "2px solid red";
-            $(imgele).css('border', '2px solid red');
-        }
-    </script>
-    <style>
-        img{
-            width : 100px;
-            height: 100px;
-        }
-    </style>
+//로드직후 실행되는 함수
+ $(function(){
+	
+	 //id=btn1 검색 - 클릭 이벤트 
+	 $('#btn1').on('click', ()=>{
+		
+		 //랜덤발생 
+		 rand =parseInt(Math.random() * arr.length);
+		 
+		 //이미지 생성- 이미지선택 arr[rand] 
+		 vimg = $(`<img onclick="imgBoder(this)" src="../images/${arr[rand]}" alt="${arr[rand]}">`)
+		 
+		 //result1에 이미지를 추가 
+		 $('#result1').append(vimg);
+		 
+	 })//click
+	 
+ })//$(function)
+ 
+ function  imgBoder(imgele){
+	//imgele.style.border = "2px solid red";
+	
+	$(imgele).css('border', '2px solid red')
+	
+}
+</script>
+<style>
+img{
+ width : 100px;
+ height : 100px;
+}
+</style>
 </head>
-
 <body>
-    <div class="box">
-        <h3>1. 버튼 클릭시 result1에 이미지를 생성해서 추가<br>
-            이미지를 클릭하면 테두리를 표시
-        </h3>
-        <br>
-        <input type="button" value="이미지추가" id="btn1">
 
-        <br>
-        <div id="result1"></div>
-    </div>
+
+<div class="box">
+    <h3>1. 버튼 클릭시 result1에 이미지를 생성헤서 추가 <br>
+    이미지를 클릭하면 테두리를 표시
+   </h3>
+	<input type="button" value="이미지추가" id="btn1">
+
+	<br>
+	<div id="result1"></div>
+</div>
+
 </body>
-
 </html>

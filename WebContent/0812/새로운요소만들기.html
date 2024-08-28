@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <link rel="stylesheet" href="../css/public.css">
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>  -->
-    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
-    <script>
-        arr = ["Hello", "happy", "사랑은 늘 도망가", "우리들의 블루스", "이제나만 믿어요",
-                "happynewYear", "good~~~", "별빛같은나의사랑아"];
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 
-        const ppProc = (pele) => {
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
 
-            //pele변수는 dom객체 변수
-            pele.style.background ='green';
-            $(pele).css('background', 'red');
-        }
-        proc1 = () =>{
-            
-            //랜덤 발생
-            rand = parseInt(Math.random() * arr.length);
+<script>
+arr =["Hello", "happy"," 사랑은 늘 도망가", "우리들의 블루스", "이제나만 믿어요",
+	"happynewYear", "good~~~", "별빛같은 나의사랑아"];
+	
+	
+proc1 = () =>{
+	
+	//랜덤 발생
+     rand =parseInt(Math.random() * arr.length);
+	
+	//문자열선택 arr[rand]
+	
+	//p태그 생성 
+	//ptag= $(`<p class="pp" onclick="ppProc(this)">${arr[rand]}</p>`)
+	ptag = $('<p></p>', { 
+		  'class'  :  'pp2',
+		  'text'   : arr[rand],
+		  'click' : ppProc2  //참조형식.내부 함수에서 this를 자동으로 넘겨받음
+		  
+	})
+	
+    //$('#result1').append(ptag);
+	//$(ptag).appendTo($('#result1'));
+	
+	$('#result1').prepend(ptag);
+}
 
-            //문자열 선택 arr[rand]
-            //p태그 생성
-            ptag = $(`<p class="pp" onclick="ppProc(this)">${arr[rand]}</p>`)
-            ptag = $('<p></p>', {
-                'class' : 'pp',
-                'text'  : arr[rand],
-                'click' : ppProc2    //참조형식.내부함수에서 this를 자동으로 넘겨받음
-            })
 
-            // $('#result1').append([ptag])
-            // $(ptag).appendTo($('#reuslt1'));
+function ppProc2(){
+	//this.style.background = 'green'
+	$(this).css('background', 'green')
+}
+function ppProc(pele){
+	
+	//pele변수는 dom객체변수 
+	//pele.style.background ='yellow';
+	
+	
+	$(pele).css('background' , 'red')
+}
+</script>
 
-            $('#result1').prepend(ptag);
-        }
-
-        function ppProc2(){
-            // this.style.
-            $(this).css('background', 'green');
-        }
-    </script>
 </head>
-
 <body>
-    <div class="box">
-        <h3>1. result1에 p태그를 추가한다
-            랜덤으로 문자열 발생
-        </h3>
-        <br>
-        <input type="button" value="확인" onclick="proc1()">
 
-        <br>
 
-    </div>
+<div class="box">
+    <h3>1. result1에 p태그를 추가한다 
+    랜덤으로 문자열 발생
+   </h3>
+	<input type="button" value="확인" onclick="proc1()">
+
+	<br>
+	<div id="result1"></div>
+</div>
+
 </body>
-
 </html>

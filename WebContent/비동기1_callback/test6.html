@@ -1,53 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/public.css">
-    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 
-    <script>
-        function getData(fn){
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
 
-            setTimeout( () => {
-                console.log("서버에서 데이터 가져오기\n id가 a001인 데이터의 이름 가져오기");
-                let vname = "김은대";
-                //콜백함수 호출
-                fn({name : vname});
-            }, 2000);
-            
+<script>
 
-        }
+function getData(fn){
+	
+	setTimeout( ()=>{
+		console.log("서버에서 데이타 가져오기\n id가 a001인 데이타의 이름을 가져오기 " );
+		let vname = "김은대";
+		
+		fn({name : vname });
+		
+	}, 2000)
+}
 
-        const proc1 = () =>{
-            //main함수 호출 main에서 비동기 실행할때 콜백함수 호출
-            getData(function(data){
-                console.log(`id가 a001인 데이터의 이름 ${data.name}`)
-            });
 
-        }
+const proc1 = () =>{
+	
+	getData(function(data){
+		console.log(`id가 a001인 데이타의 이름 ${data.name}`)
+	})
+}
 
-        //결과 : id가 a001인 데이터의 이름 김은대
-    </script>
+//결과 id가 a001인 데이타의 이름 김은대 - 정상 실행 
+//test7과 비교  - 콜백 없이 실행 - 오류 
 
-    <style>
 
-    </style>
+</script>
 </head>
-
 <body>
-    <div class="box">
-        <h3>1. 동기적 실행 - 한번에 하나씩 차례대로 순서대로 실행
-        </h3>
 
-        <input type="button" value="확인" onclick="proc1()">
 
-        <br>        <div id="result1"></div>
+<div class="box">
+    <h3>1. 
+   </h3>
+	<input type="button" value="확인" onclick="proc1()">
 
-    </div>
+	<br>
+	<div id="result1"></div>
+</div>
+
 </body>
-
 </html>

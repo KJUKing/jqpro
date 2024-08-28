@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
+
+
+<script>
+$(document).ready( () =>{
+	
+	$('#btn1').on('click', ()=>{
+		
+		res1 =   document.getElementById('result1');
+		//res1.style.background = "pink";
+		
+		//res1.css('background', 'red');  - 오류  - res1: dom개겣변수 ,css:jquery메소드 
+		
+		
+		//dom객체변수 res1을 jquery변수로 변환 - $()
+		//$(res1).style.backgound = 'cyan';--오류 
+		
+		$(res1).css('background', 'cyan')
+	})
+})
+</script>
+
+</head>
+<body>
+
+
+<div class="box">
+    <h3>1. 
+   </h3>
+	<input type="button" value="확인" id="btn1">
+
+	<br>
+	<div id="result1"></div>
+</div>
+
+</body>
+</html>

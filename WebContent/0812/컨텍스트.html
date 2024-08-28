@@ -1,60 +1,83 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <link rel="stylesheet" href="../css/public.css">
-    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
-    <script>
-        $(document).ready(() => {
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 
-            // id=btn1을 검색 - click이벤트
-            $('#btn1').on('click', () => {
-                // 전체 p 태그를 선택
-                $('p').css('color', 'green');
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
 
-                // 0번째 form(부모) 내부의 p(자식) 태그를 선택
-                $('p', document.forms[0]).css('font-size', '2.0rem');
 
-                $('#result1 p').css('background', 'cyan');
-            });
+<script>
 
-            // form을 클릭하면 그 내부의 자식 p 태그를 선택한다 ---- 엄청나게 중요함 ----
-            $('.ff p').on('click', function () {
-                $(this).css('color', 'red');
-            });
-        });
+$(document).ready( () =>{
+	
+	//id=btn1 을 검색 - click이벤트
+	$('#btn1').on('click', ()=>{
+		
+		 //전체 p태그를 선택 
+		 $('p').css('color', 'green');
+		
+		 //0번째 form(부모)내부의 p(자식)태그를 선택 
+		 $('p', document.forms[0]).css('font-size' , '2.0rem');
+		
+		 
+		 $('#result1 p').css('background', 'cyan');
+	
+	})//
+	
+	
+	//form 를 클릭하면  그 내부의 자식 p태그를 선택한다------별표5개 *****-------
+	$('.ff').on('click', function(){
+		$('p', this).css('color', 'red');
+	})
+	
+})
 
-    </script>
-    <style>
-        .ff {
-            border: 2px solid blue;
-        }
-    </style>
+
+
+</script>
+
+
+<style>
+
+.ff{
+  border : 2px solid blue;
+}
+</style>
 </head>
-
 <body>
-    <div class="box">
-        <h3>1.</h3>
-        <br>
-        <input type="button" value="확인" id="btn1">
-        <form class="ff">
-            <p>form1 무궁화 꽃이 피었습니다</p>
-        </form>
-        <br>
 
-        <div id="result1">
-            <p>result1 무궁화 꽃이 피었습니다</p>
-        </div>
-        <br>
 
-        <form class="ff">
-            <p>box 무궁화 꽃이 피었습니다</p>
-        </form>
+<div class="box">
+    <h3>1. 
+   </h3>
+	<input type="button" value="확인" id="btn1">
 
-        <p>box 무궁화 꽃이 피었습니다</p>
-    </div>
+    <form class="ff">
+      <p>form1무궁화  꽃이 피었습니다</p>
+    </form>
+	<br>
+	
+	<div id="result1">
+	  <p>result1 무궁호ㅘ 꽃이 피었습니다</p>
+	</div>
+	
+	
+	<form class="ff">
+      <p>form2무궁화  꽃이 피었습니다</p>
+    </form>
+    
+    <p>box 무궁화  꽃이 피었습니다</p>
+    
+</div>
+
 </body>
-
 </html>
+
+
+
+
+
+

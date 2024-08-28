@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/public.css">
 
-<!-- <script  src=""></script> -->
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
 <script src="../js/jquery-3.7.1.js"></script>
 
 
@@ -24,7 +24,6 @@ $(()=>{
 		  
 		 //요청 
 		 data ='name=' + vname + '&tel=' + vtel ;
-		 
 		 
 		 xhr.open('post', 'test1.jsp', true);
 		 xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
@@ -70,7 +69,7 @@ $(()=>{
 		  
 		  //서버로 전송 -요청
 		  xhr.open('get', 'test1.jsp?name=' + vname + '&tel=' + vtel, true);
-		  xhr.send();
+		  xhr.send()
 		  
 	  })
 })
@@ -119,6 +118,9 @@ $(()=>{
 
 </body>
 </html>
+
+
+
 
 
 

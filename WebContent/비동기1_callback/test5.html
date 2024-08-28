@@ -1,53 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/public.css">
-    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 
-    <script>
-        function main(fn){
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
 
-            setTimeout( () => {
-                console.log("게시판 리스트 가져오기를 실행");
+<script>
 
-                //콜백함수 호출
-                fn();
-            }, 2000);
-            
+function main(fn){
+	
+	setTimeout(()=>{
+		console.log("게시판 리스트 가져오기 ");
+		
+		//콜백함수를 호출 
+		fn();
+	}, 2000)
+	
+}
 
-        }
+const proc1 = () =>{
+	//main함수 호출하고 main에서 비동기 실행할때 콜백함수를 호풀 한다 
+	main(function(){
+		console.log("게시판 리스트 출력")
+	})
+	
+}
 
-        const proc1 = () =>{
-            //main함수 호출 main에서 비동기 실행할때 콜백함수 호출
-            main(function(){
-                console.log("게시판 리스트 출력")
-            });
+//결과 : 게시판 리스트 가져오기  - 게시판 리스트 출력
 
-        }
-
-        //결과 : 게시판출력하기 -> 게시판 리스트가져오기 실행
-    </script>
-
-    <style>
-
-    </style>
+</script>
 </head>
-
 <body>
-    <div class="box">
-        <h3>1. 동기적 실행 - 한번에 하나씩 차례대로 순서대로 실행
-        </h3>
 
-        <input type="button" value="확인" onclick="proc1()">
 
-        <br>        <div id="result1"></div>
+<div class="box">
+    <h3>1. 
+   </h3>
+	<input type="button" value="확인" onclick="proc1()">
 
-    </div>
+	<br>
+	<div id="result1"></div>
+</div>
+
 </body>
-
 </html>

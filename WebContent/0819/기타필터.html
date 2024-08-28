@@ -1,49 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/public.css">
-    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
-    <script>
-        const proc1 = () => {
-            let str = " *** hidden 객체 ***<br>";
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 
-            // $('.box1 p:hidden').each( (i, v) => { 주의! 화살표함수쓰면
-            $('.box1 p:hidden').each( function(i, v){
-                //str += $(v).text() + "<br>";  밑의 this는 window함수를 가르키게돼서 잘못된 지칭이된다.
-                str += $(this).text() + "<br>";
-            })
-            $('#result1').html(str);
-        }
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
 
-        const proc2 = () => {
-            let str = " *** visible 객체 *** <br>";
 
-            $('.box1 p:visible').each(function(i, v){
-                str += $(this).text() + "<br>";
-            })
-            $('#result2').html(str);
-        }
-    </script>
+<script>
+const proc1 = () =>{
+	
+	let str  = " *** hidden 객체 ***<br>";
+	
+	$('.box1 p:hidden').each( function(i, v) {
+		
+		str +=  $(this).text() +"<br>"; 
+		//str +=  $(v).text() +"<br>";
+		console.log(str);
+	})
+	
+	$('#result1').html(str);
+	
+}
+
+
+const proc2 = () =>{
+	
+	let str = "*** visible객체 ***<br>";
+	
+	
+	$('.box1 p:visible').each(function(i, v){
+		 str += $(this).text() + "<br>";
+	})
+	
+	$('#result2').html(str);
+}
+</script>
 </head>
 <body>
-    <div class="box box1">
-        <h3>1.
-        </h3>
-        <input type="button" value="hidden" onclick="proc1()">
-        <input type="button" value="visible" onclick="proc2()">
 
-        <br>
 
-        <p>보이는 문단</p>
-        <p style="visibility: hidden;">숨겨진 문단</p>
-        <p style="display: none;"> 자리를 차지 못한 문단</p>
-        <p style="opacity: 0;"> 투명한 문단</p>
-        <div id="result1"></div>
-        <div id="result2"></div>
-    </div>
+<div class="box box1">
+    <h3>1. 
+   </h3>
+	<input type="button" value="hidden" onclick="proc1()">
+    <input type="button" value="visible" onclick="proc2()">
+
+	<br>
+
+	<p>보이는 문단</p>
+	<p style="visibility:hidden;">숨겨진 문단</p>
+	<p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+	<p style="opacity:0;"> 투명한 문단</p>
+	
+	<div id="result1"></div>
+	<div id="result2"></div>
+</div>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

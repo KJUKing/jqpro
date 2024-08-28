@@ -1,93 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/public.css">
-    <script src="../js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 
-    <script>
-        const getData = (url, vdata) => {
-            return new Promise((resolve, reject) => {
-                const xhr = new XMLHttpRequest();
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
 
-                xhr.open('POST', url, true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.send(vdata);
+<script>
 
-                xhr.onload = () => {
-                    if (xhr.status === 200) {
-                        resolve(xhr.responseText); // 응답이 성공적으로 도착한 경우
-                    } else {
-                        reject(new Error("오류 발생: " + xhr.statusText)); // 응답이 실패한 경우
-                    }
-                };
-                xhr.onerror = () => {
-                    reject(new Error("네트워크 오류 발생")); // 네트워크 오류 처리
-                };
-            });
-        };
+const getData = (url, vdata)=>{
+	 
+	  return new Promise( (resolve, reject) =>{
+		
+		  const xhr = new XMLHttpRequest();
+		  
+		  xhr.open('post', url, true);
+		  
+		  xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+		  xhr.send(vdata);
+		  
+		  xhr.onload = () => resolve(xhr.responseText);
+		  xhr.onerror = () => reject(new Error("오류 발생"))
+		  
+	  })
+}
 
-        $(document).ready(() => { // DOM이 준비되면 이벤트 리스너를 설정합니다.
-            $('#btn1').on('click', () => {
-                let vname = $('#name').val().trim();
-                let vid = $('#id').val().trim();
+$(() =>{
+	 $('#btn1').on('click', ()=>{
+		 //입력한 값을 가져온다 - 전송할 데이타를 만든다
+		 vname = $('#name').val().trim();
+		 vid  = $('#id').val().trim();
+		 console.log(vname, vid);
+		 
+		/* vname= document.ff.name.value.trim()
+		vid = document.ff.id.value.trim() */
+		
+		params = "name=" + vname + "&id=" + vid;
+		
+		//1. text/html html코드로 응답 받았을때 - postTest.jsp에서 생성-- 
+		getData('postTest.jsp', params)
+		  .then(res =>{
+			  $('#result1').html(res);
+		  })
+		
+		
+		 //2. 응답데이타를  json형식의 문자열(text)로 응답받아서 객체로 parsing 한다 
+		  //postTest.jsp에서 생성--
+		/*  getData('postTest.jsp', params)
+		  .then(res =>{
+			  return JSON.parse(res);
+		  })
+		  .then ( data =>{
+			  //.then( ( {name, id} )=> {
+			    let code = `<p>이름 : ${data.name}</p>
+			    	       <p>아이디 : ${data.id}</p>`;
+			    	       
+			    $('#result1').html(code);	       
+		  }) */
+	 })
+})
 
-                let params = "name=" + vname + "&id=" + vid;
-
-                // //text/html html코드로 응답받았을때
-                // getData('postTEst.jsp', params)
-                //     .then(res => {
-                //         $('#result1').html(res)
-                //     })
-
-                //응답데이터를 html코드(text)로 응답받아서 객체를 parsing해야함
-                getData('postTest.jsp', params)
-                    .then(res => {
-                        return JSON.parse(res); // 서버에서 받은 JSON 응답을 파싱합니다.
-                    })
-                    .then(data => {
-                        let code = `<p>이름 : ${data.name}</p>`;
-                        code += `<p>아이디 : ${data.id}</p>`;
-                        $('#result1').html(code); // 결과를 HTML에 표시합니다.
-                    })
-                    .catch(err => {
-                        console.error(err); // 오류 발생 시 콘솔에 출력합니다.
-                    });
-            });
-        });
-    </script>
-
-    <style>
-        #res {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .item {
-            flex: 25%;
-            margin: 3px;
-            padding: 2px;
-        }
-    </style>
+</script>
 </head>
-
 <body>
-    <div class="box">
-        <h3>1. 동기적 실행 - 한번에 하나씩 차례대로 순서대로 실행</h3>
 
-        <form name="ff">
-            이름<input type="text" name="name" id="name"><br>
-            아이디<input type="text" name="id" id="id"> <br>
-            <input type="button" value="확인" id="btn1">
-        </form>
 
-        <div id="res">
-            <div class="item" id="result1"></div>
-        </div>
-    </div>
+<div class="box">
+    <h3>1. 
+   </h3>
+   
+    <form name="ff">
+	          이름 <input type="text" name="name" id="name"><br>
+	          아이디 <input type="text" name="id" id="id"><br>
+	     <input type="button" value="확인" id="btn1">
+    </form>
+	
+	<br>
+	<div id="result1"></div>
+</div>
+
 </body>
-
 </html>

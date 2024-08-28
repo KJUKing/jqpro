@@ -4,28 +4,33 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/public.css">
-<!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>  -->
-<script src="..js/jquery-3.7.1.js"></script> <!-- 외부스크립트 -->
+<!-- <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
+  
+
 <script>
-    //window 실행 완료 후 즉시 자동시행되는 작수
-    window.onload = function(){
-        document.getElementById('result1').style.background = "yellow";
+//window 실행왼료후 즉시 자동적으로 실행되는 함수
+window.onload =function(){
+	document.getElementById('result1').style.background ='yellow'
+}
 
-    }
-    //버튼 클릭했을때
-    proc1 = () => {
-        document.getElementById('result1').style.background = "blue"
-    }
-
+//버튼 클릭했을때 
+ proc1 = () =>{
+	document.getElementById('result1').style.background = 'blue';
+} 
 </script>
 </head>
 <body>
-    <div class="box">
-        <h3>1. 메소드</h3>
-        <input type="button" value="추가" onclick="proc1()">
-        <br>
-        <div id="result1"></div>
-    </div>
+
+
+<div class="box">
+    <h3>1. 
+   </h3>
+	<input type="button" value="확인" onclick="proc1()">
+
+	<br>
+	<div id="result1"></div>
+</div>
 
 </body>
 </html>
