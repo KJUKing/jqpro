@@ -17,12 +17,12 @@
  
  $(()=>{
 	 
-	 //lprod의 제품을 선택하면  - 두번째 select에 prod제품을 option으로 출력 
+	 //lprod의 제품을 선택하면  - 두번째 select에 prod제품을 prod_id prod_name option으로 출력
 	 $('#lprod').on('change', function(){
 		 
 		 //선택한 옵션의 lprod_gu값을 얻는다 
 		 lgu =  $("option:selected", this).val();
-		 alert(lgu);
+		 alert(lgu);	//P401 101 등
 		
 		//자바스크립트 객체 
 		 lguvalue =  {lprod_gu : lgu };  // reader를 이용 
