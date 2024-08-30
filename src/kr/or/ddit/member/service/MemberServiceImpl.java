@@ -3,6 +3,7 @@ package kr.or.ddit.member.service;
 import kr.or.ddit.member.dao.IMemberDao;
 import kr.or.ddit.member.dao.MemberDaoImpl;
 import kr.or.ddit.member.vo.MemberVO;
+import kr.or.ddit.member.vo.ZipVO;
 
 import java.util.List;
 
@@ -34,6 +35,24 @@ public class MemberServiceImpl implements IMemberService{
 		 */
 		
 		return dao.selectAllMember();
+	}
+
+	@Override
+	public String idCheck(String id) {
+		// TODO Auto-generated method stub
+		return dao.idCheck(id);
+	}
+
+	@Override
+	public List<ZipVO> selectByDong(String dong) {
+		// TODO Auto-generated method stub
+		return dao.selectByDong(dong);
+	}
+
+	@Override
+	public int insertMember(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return dao.insertMember(vo);
 	}
 
 }
