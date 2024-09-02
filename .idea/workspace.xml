@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efebb963-52cb-4950-b908-ec19c3e8a03d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/WebContent/비동기6_ajax/dongList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebContent/비동기6_ajax/idCheck.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kr/or/ddit/member/controller/IdCheckController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebContent/비동기6_ajax/insert.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kr/or/ddit/member/controller/InsertMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kr/or/ddit/member/controller/StreamData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebContent/비동기6_ajax/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/비동기6_ajax/join.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kr/or/ddit/member/dao/IMemberDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kr/or/ddit/member/dao/IMemberDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kr/or/ddit/member/dao/MemberDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kr/or/ddit/member/dao/MemberDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kr/or/ddit/member/service/MemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kr/or/ddit/member/service/MemberServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kr/or/ddit/mybatis/config/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kr/or/ddit/mybatis/config/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kr/or/ddit/mybatis/mappers/member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kr/or/ddit/mybatis/mappers/member.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jqpro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jqpro.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/kr/or/ddit/mybatis/config/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/res/kr/or/ddit/mybatis/config/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/kr/or/ddit/mybatis/mappers/member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/res/kr/or/ddit/mybatis/mappers/member.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kr/or/ddit/member/dao/IMemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kr/or/ddit/member/dao/IMemberDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kr/or/ddit/member/dao/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kr/or/ddit/member/dao/MemberDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kr/or/ddit/member/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kr/or/ddit/member/service/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kr/or/ddit/member/vo/ZipVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kr/or/ddit/member/vo/ZipVO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +56,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/PC-14/Desktop/webTest",
+    "last_opened_file_path": "D:/A_TeachingMaterial/05_JQuery/workspace/jqpro/WebContent/비동기6_ajax",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,6 +70,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\A_TeachingMaterial\05_JQuery\workspace\jqpro\WebContent\비동기6_ajax" />
       <recent name="D:\A_TeachingMaterial\05_JQuery\workspace\jqpro\src\kr\or\ddit\member\service" />
     </key>
   </component>
@@ -112,6 +100,9 @@
       <workItem from="1724920957107" duration="151000" />
       <workItem from="1724976302151" duration="4884000" />
       <workItem from="1724981436395" duration="9898000" />
+      <workItem from="1725006601402" duration="681000" />
+      <workItem from="1725010181763" duration="36000" />
+      <workItem from="1725235334018" duration="7239000" />
     </task>
     <servers />
   </component>
